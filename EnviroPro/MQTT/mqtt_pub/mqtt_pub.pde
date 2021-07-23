@@ -35,7 +35,7 @@ uint8_t socket = SOCKET0;
 
 // choose HTTP server settings
 ///////////////////////////////////////
-char HTTP_SERVER[] = "192.168.1.3";
+char HTTP_SERVER[] = "192.168.1.73";
 uint16_t HTTP_PORT = 1883;
 ///////////////////////////////////////
 
