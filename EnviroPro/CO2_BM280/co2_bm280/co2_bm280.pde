@@ -53,7 +53,7 @@ uint8_t error;
 uint8_t status;
 unsigned long previous;
 
-Gas gas_PRO_sensor(SOCKET_F);
+Gas gas_PRO_sensor(SOCKET_A);
 
 float concentration;  // Stores the concentration level in ppm
 float temperature;  // Stores the temperature in ºC
