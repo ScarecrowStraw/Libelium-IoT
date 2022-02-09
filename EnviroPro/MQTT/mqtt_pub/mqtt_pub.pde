@@ -35,7 +35,7 @@ uint8_t socket = SOCKET0;
 
 // choose HTTP server settings
 ///////////////////////////////////////
-char HTTP_SERVER[] = "192.168.1.73";
+char HTTP_SERVER[] = "192.168.0.62";
 uint16_t HTTP_PORT = 1883;
 ///////////////////////////////////////
 
@@ -151,7 +151,7 @@ void loop()
   // 2. Perform the HTTP GET
   //////////////////////////////////////////////////
 
-  error = WIFI_PRO_V3.mqttPublishTopic("myTopic",WaspWIFI_v3::QOS_1,WaspWIFI_v3::RETAINED,"Temp:17");
+  error = WIFI_PRO_V3.mqttPublishTopic("/demo",WaspWIFI_v3::QOS_1,WaspWIFI_v3::RETAINED,"Temp:17");
 
   // check response
   if (error == 0)
