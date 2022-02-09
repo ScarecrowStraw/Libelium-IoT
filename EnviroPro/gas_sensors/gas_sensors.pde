@@ -88,7 +88,7 @@ void setup()
 
     // Power on the electrochemical sensor. 
     // If the gases PRO board is off, turn it on automatically.
-    gas_PRO_sensor.ON();
+    // gas_PRO_sensor.ON();
     NO2_PRO_sensor.ON();
     CH4_PRO_sensor.ON(); 
     NH3_PRO_sensor.ON();
@@ -171,6 +171,13 @@ void loop()
     // 1. Switch ON
     //////////////////////////////////////////////////
     error = WIFI_PRO_V3.ON(socket);
+
+    gas_PRO_sensor.ON();
+
+    // NDIR gas sensor needs a warm up time at least 120 seconds  
+    // To reduce the battery consumption, use deepSleep instead delay
+    // After 2 minutes, Waspmote wakes up thanks to the RTC Alarm
+    PWR.deepSleep("00:00:02:00", RTC_OFFSET, RTC_ALM1_MODE1, ALL_ON);
 
     if (error == 0)
     {
@@ -280,6 +287,7 @@ void loop()
     // 3. Switch OFF
     //////////////////////////////////////////////////
     WIFI_PRO_V3.OFF(socket);
+    gas_PRO_sensor.OFF();
 
     // Go to deepsleep  
     // After 2 minutes, Waspmote wakes up thanks to the RTC Alarm
